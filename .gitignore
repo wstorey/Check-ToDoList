@@ -15,5 +15,5 @@ yarn-error.log
 .rocketeer/
 
 .idea/
-
-
+.env.example
+.editorconfig
