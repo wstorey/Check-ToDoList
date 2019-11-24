@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Check
+                    Check Change From Will 2
                 </div>
             </div>
         </div>
