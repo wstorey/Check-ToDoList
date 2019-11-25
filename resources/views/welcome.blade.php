@@ -1,4 +1,6 @@
 @extends('master')
+@section('title') Check @endsection
+
 
 @section('content')
 
