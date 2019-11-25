@@ -18,7 +18,7 @@ td:first-of-type {
 
 /* Header Styles */
 .navbar {
-    background: rgba(0, 167, 167, 0.67);
+    background: rgba(0, 167, 167, 0.4);
 }
 
 .navbar-brand,
@@ -43,6 +43,10 @@ img {
 
 span.glyphicon {
     width: 100%;
+}
+
+h1 {
+    padding: 2vh 0 2vh 15px;
 }
 
 /* Welcome Styles */
