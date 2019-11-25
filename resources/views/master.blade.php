@@ -9,8 +9,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="/">Check</a>
-    <ul class="navbar navbar-nav ml-auto my-lg-0">
+    <a class="navbar-brand" href="{{ url('/') }}">Check</a>
+    <ul class="navbar-nav ml-auto my-lg-0">
         @if (Route::has('login'))
                 @auth
                     <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Hello User</a></li>
