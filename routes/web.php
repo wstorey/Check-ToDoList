@@ -11,15 +11,20 @@
 |
 */
 
+Route::resource('todos', 'TodoController');
+Route::resource('items', 'ItemController');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::resource('lists','ListController');
 Route::resource('items','ItemController');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Auth::routes();
 
