@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $todo = Todo::get();
