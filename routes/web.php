@@ -19,6 +19,12 @@ Route::get('/', function () {
 });
 
 
+Route::resource('lists','ListController');
+Route::resource('items','ItemController');
+
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Auth::routes();
+
