@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
+
 
 class ItemTodoTableSeeder extends Seeder
 {
@@ -19,14 +21,21 @@ class ItemTodoTableSeeder extends Seeder
         //Sync item to todo
         //DB::class
 
+        $faker = new Faker();
+
         $todoIds = \App\Todo::all()->pluck('id');
         $itemIds = \App\Item::all()->pluck('id');
-        for($i = 0; i < 30; i++) {
+
+        $itemTodos = [];
+        for($i = 0; $i < 30; $i++) {
+            $todoId = $faker->randomElement($todoIds);
+            $itemId = $faker->randomElement($itemIds);
+            $todo = \App\Todo::find($itemId);
+            $todo->items()->sync($itemId);
+//            $itemTodos['item_id'] = $itemId;
+//            $itemTodos['todo_id'] = $todoId;
 
         }
-        return [
-            'name' => $faker->word,
-            'todo_id' => $faker->randomElement($todoIds)
-        ];
+//        return $itemTodos;
     }
 }
