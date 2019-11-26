@@ -5,5 +5,6 @@
 
     <h1>Lists</h1>
 
+    {{$todo}}
 @endsection
 

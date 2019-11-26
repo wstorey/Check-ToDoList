@@ -9,12 +9,14 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return view('todos.index');
+        $todo = Todo::get();
+        dd($todo->user);
+        return view('todos.index', compact('todo'));
     }
 
     public function show(Todo $todo)
     {
-        //
+
     }
 
     public function create()
