@@ -17,5 +17,6 @@
         </tbody>
     </table>
 
+    {{$todo}}
 @endsection
 
