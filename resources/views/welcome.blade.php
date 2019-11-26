@@ -5,7 +5,7 @@
 @section('content')
 
     <div class="jumbotron jumbotron-fluid">
-        <h3 class="display-3">The Last List App You'll Need</h3>
+{{--        <h3 class="display-3">The Last List App You'll Need</h3>--}}
     </div>
 
     <div class="container">
