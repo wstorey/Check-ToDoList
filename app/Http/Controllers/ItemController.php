@@ -30,7 +30,9 @@ class ItemController extends Controller
     public function store(ItemRequest $request)
     {
         $formData = $request->all();
+        $todo = $request->all();
         Item::create($formData);
+        $todo->items()->sync($request->item);
         return ; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
 
