@@ -55,9 +55,13 @@ class TodoController extends Controller
 
     public function destroy(Todo $todo)
     {
-        $todo->items()->delete();
-        $todo->delete();
-
-        return redirect('todos.index');
+    dd($todo->items);
+        if(empty($todo->items) && isset($todo->items)) {
+            $todo->items()->delete();
+            $todo->delete();
+        }else{
+            $todo->delete();
+        }
+        return redirect('todos');
     }
 }

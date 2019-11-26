@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
         DB::table('items')->truncate();
         $this->call(ItemsTableSeeder::class);
 
+//        DB::table('item_todo')->truncate();
+//        $this->call(ItemTodoTableSeeder::class);
+
 
 
         Schema::enableForeignKeyConstraints();
