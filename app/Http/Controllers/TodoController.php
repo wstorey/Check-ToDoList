@@ -27,21 +27,32 @@ class TodoController extends Controller
 
     public function store(TodoRequest $request)
     {
-        //
+        $formData = $request->all();
+
+        Todo::crete($formData);
+
+        return view('todos.index');
     }
 
     public function edit(Todo $todo)
     {
-        //
+        return view('todo.edit',compact('todo'));
     }
 
-    public function update(Request $request, Todo $todo)
+    public function update(TodoRequest $request, $todo)
     {
-        //
+        $formData = $request->all();
+        $todo = Todo::findOrFail($todo);
+        $todo->update($formData);
+
+        return redirect('todos.index');
     }
 
     public function destroy(Todo $todo)
     {
-        //
+        $todo->items()->delete();
+        $todo->delete();
+
+        return redirect('todos.index');
     }
 }
