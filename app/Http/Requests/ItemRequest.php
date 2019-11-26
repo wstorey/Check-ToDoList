@@ -24,8 +24,7 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'Required|String',
-            'todo'=>'Required|Exists:Todo,id'
+            'name'=>'required|string'
         ];
     }
 }
