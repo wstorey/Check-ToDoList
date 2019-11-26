@@ -16,6 +16,6 @@ class Item extends Model
     ];
 
     public function todos() {
-        return $this->belongsToMany(Item::class);
+        return $this->belongsToMany(Todo::class);
     }
 }

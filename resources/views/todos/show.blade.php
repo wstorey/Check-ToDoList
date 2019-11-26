@@ -7,16 +7,15 @@
     <h1>{{ $todo->name }}</h1>
     <table class="table table-striped">
         <tbody>
-{{--            @foreach($todo->items as $item)--}}
-{{--                {{ $item }}--}}
-{{--            @endforeach--}}
-            {{--ITEM GOES HERE --}}
-            <td><button class="btn btn-primary" href="#">Update Name</button></td>
-            <td><button class="btn btn-danger" href="#">Delete To Do</button></td>
-            <td>{{ $todo->user_id }}</td>
+            @foreach($todo->items as $item)
+                <tr>
+                    <td>{{ $item->name }}</td>
+                    <td><button class="btn btn-primary" href="#">Update Item</button></td>
+                    <td><button class="btn btn-danger" href="#">Delete Item</button></td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
-
 
     <div class="form-group">
         <form method="POST" action="{{action ('TodoController@store')}}">
