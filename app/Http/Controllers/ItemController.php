@@ -13,7 +13,7 @@ class ItemController extends Controller
     }
     public function index()
     {
-        return view('lists.index');
+        return view('item.index');
     }
 
     public function show(Item $item)
