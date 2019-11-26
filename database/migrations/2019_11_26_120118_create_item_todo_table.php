@@ -16,10 +16,10 @@ class CreateItemTodoTable extends Migration
         Schema::create('item_todo', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('item_id')->unsigned();
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
 
             $table->integer('todo_id')->unsigned();
-            $table->foreign('todo_id')->references('id')->on('todos');
+            $table->foreign('todo_id')->references('id')->on('todos')->onDelete('cascade');
             $table->timestamps();
         });
     }
