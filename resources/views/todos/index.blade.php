@@ -11,7 +11,7 @@
                 <td><a href="todos/{{ $todo->id }}">{{ $todo->name }}</a></td>
 {{--                <td><a href="{{ url('todos/' . $todo->id) }}">{{ $todo->name }}</a></td>--}}
                 <td>
-                    <button class="btn btn-primary" href="#">Update Name</button>
+                    <button class="btn btn-primary"><a href="{{ action('TodoController@edit', $todo->id) }}">Update Name</a></button>
                 </td>
 
                 <td>

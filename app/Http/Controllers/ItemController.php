@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ItemRequest;
 use App\Item;
+use App\Todo;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -13,27 +14,30 @@ class ItemController extends Controller
     }
     public function index()
     {
-        return view('item.index');
+        return view('todo.index');
     }
-
-    public function show(Item $item)
-    {
-        return view('item.show',compact('item'));
-    }
-
-    public function create()
-    {
-        return view('item.create');
-    }
+//
+//    public function show(Item $item)
+//    {
+//        return view('item.show',compact('item'));
+//    }
+//
+//    public function create()
+//    {
+//        return view('todos.show');
+//    }
 
 
     public function store(ItemRequest $request)
     {
-        $formData = $request->all();
-        $todo = $request->all();
-        Item::create($formData);
-        $todo->items()->sync($request->item);
-        return ; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
+//        dd($request->segments());
+        $todo_id = $request->session()->pull('todo_id');
+        $todo = Todo::findOrFail($todo_id);
+        $item = new Item($request->all());
+//        $item->todos()->associate($todo)->save();
+        $item->todos()->syncWithoutDetaching($request->todo);
+
+        return redirect('todos'); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
 
     public function edit($item)

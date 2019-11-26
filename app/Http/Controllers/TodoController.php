@@ -41,7 +41,7 @@ class TodoController extends Controller
 
     public function edit(Todo $todo)
     {
-        return view('todo.edit',compact('todo'));
+        return view('todos.edit',compact('todo'));
     }
 
     public function update(TodoRequest $request, $todo)
@@ -50,7 +50,7 @@ class TodoController extends Controller
         $todo = Todo::findOrFail($todo);
         $todo->update($formData);
 
-        return redirect('todos.index');
+        return redirect('todos');
     }
 
     public function destroy(Todo $todo)
