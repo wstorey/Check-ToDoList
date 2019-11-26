@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
 
     public function todos() {
-        return $this->hasMany('App\Todo','user_id');
+        return $this->hasMany(Todo::class);
     }
 }
