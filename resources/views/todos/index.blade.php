@@ -27,9 +27,6 @@
         </tbody>
     </table>
 
-
-    {{$todo}}
-    
     <div class="form-group">
         <form method="POST" action="{{action ('TodoController@store')}}">
             @include('partials.createForm',
