@@ -51,7 +51,9 @@ class ItemController extends Controller
 
     public function destroy(Item $item)
     {
-        $item->todos()->detach($item->todo_id)->detele();
+        $item->todos()->detach($item->todo_id);
+
+            $item->delete();
 
         return ; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
