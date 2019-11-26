@@ -14,9 +14,8 @@ class TodoController extends Controller
 
     public function index()
     {
-        $todo = Todo::get()->first();
-        dd($todo->user->email);
-        return view('todos.index', compact('todo'));
+        $todos = Todo::get();
+        return view('todos.index', compact('todos'));
     }
 
     public function show(Todo $todo)
