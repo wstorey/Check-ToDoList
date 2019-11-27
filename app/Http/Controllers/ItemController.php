@@ -30,12 +30,12 @@ class ItemController extends Controller
 
     public function store(ItemRequest $request)
     {
-//        dd($request->segments());
+        dd($request);
         $todo_id = $request->session()->pull('todo_id');
         $todo = Todo::findOrFail($todo_id);
         $item = new Item($request->all());
-//        $item->todos()->associate($todo)->save();
-        $item->todos()->syncWithoutDetaching($request->todo);
+        $item->todos()->associate($todo)->save();
+        $item->todos()->sync($request->todo);
 
         return redirect('todos'); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
