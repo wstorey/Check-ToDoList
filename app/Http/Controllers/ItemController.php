@@ -59,9 +59,10 @@ class ItemController extends Controller
     {
         $item->todos()->detach($item->todo_id);
 
-            $item->delete();
+//        dd($item);
+        $item->delete();
 
-        return ; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
+        return redirect('todos/' . $item->todo_id); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
 
     public function restore($item) {

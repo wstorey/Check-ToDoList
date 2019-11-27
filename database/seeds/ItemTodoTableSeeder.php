@@ -28,7 +28,7 @@ class ItemTodoTableSeeder extends Seeder
 
         $itemTodos = [];
         for($i = 0; $i < 30; $i++) {
-            $todoId = $faker->randomElement($todoIds);
+//            $todoId = $faker->randomElement($todoIds);
             $itemId = $faker->randomElement($itemIds);
             $todo = \App\Todo::find($itemId);
             $todo->items()->sync($itemId);
