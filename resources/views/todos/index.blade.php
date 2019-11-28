@@ -11,7 +11,7 @@
                 <td><a href="todos/{{ $todo->id }}">{{ $todo->name }}</a></td>
 {{--                <td><a href="{{ url('todos/' . $todo->id) }}">{{ $todo->name }}</a></td>--}}
                 <td>
-                    <button class="btn btn-primary"><a href="{{ action('TodoController@edit', $todo->id) }}">Update Name</a></button>
+                    <a href="{{ action('TodoController@edit', $todo->id) }}"><button class="btn btn-primary">Update Name</button></a>
                 </td>
 
                 <td>
@@ -21,7 +21,6 @@
                         <button class="btn btn-danger" type="submit">Delete To Do</button>
                     </form>
                 </td>
-                <td>{{ $todo->user_id }}</td>
             </tr>
         @endforeach
         </tbody>
@@ -30,10 +29,11 @@
     <div class="form-group">
         <form method="POST" action="{{action ('TodoController@store')}}">
             @include('partials.createForm',
-            ['buttonName' => 'Create',
+            ['buttonName' => 'Add To Do',
              'name' => old('name'),
              'title' => 'Add New To Do'])
         </form>
+        @include('partials.errors')
     </div>
 
 @endsection
