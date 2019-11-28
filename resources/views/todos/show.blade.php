@@ -10,7 +10,9 @@
             @foreach($todo->items as $item)
                 <tr>
                     <td>{{ $item->name }}</td>
-                    <td><button class="btn btn-primary" href="#">Update Item</button></td>
+                    <td>
+                        <button class="btn btn-primary" href="#"><a href="{{ action('ItemController@edit', $item->id) }}">Update Item</a></button>
+                    </td>
                     <td>
                         <form method="post" action="{{ action('ItemController@destroy', $item->id) }}">
                             {{ method_field('DELETE') }}
