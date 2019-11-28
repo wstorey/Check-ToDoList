@@ -30,14 +30,28 @@ class ItemController extends Controller
 
     public function store(ItemRequest $request)
     {
-        dd($request);
         $todo_id = $request->session()->pull('todo_id');
+
         $todo = Todo::findOrFail($todo_id);
         $item = new Item($request->all());
-        $item->todos()->associate($todo)->save();
-        $item->todos()->sync($request->todo);
 
-        return redirect('todos'); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
+        $item['todo_id']=$todo_id;
+        //dd($item);
+        //Item::create($item->getAttributes());
+        $item->save();
+ //       dd($item);
+        //$item_id = Item::latest()->first();
+
+        //$item_id->setAttribute('item_id',$item_id->id);
+//        dd($item_id);
+
+
+//        $item_id = ['item_id',$item_id->getAttribute('id')];
+//        $todo_id = ['todo_id',$todo_id];
+
+        $item->todos()->sync($todo);
+
+        return redirect()->action('TodoController@show', $todo_id); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
 
     public function edit($item)
