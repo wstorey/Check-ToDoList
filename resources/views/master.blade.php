@@ -13,7 +13,9 @@
     <ul class="navbar-nav ml-auto my-lg-0">
         @if (Route::has('login'))
                 @auth
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Hello User</a></li>
+{{--                    <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Hello User</a></li>--}}
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/todos') }}">To Do's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Log Out</a></li>
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
 
@@ -22,7 +24,6 @@
                     @endif
                 @endauth
         @endif
-            <li class="nav-item"><a class="nav-link" href="{{ url('/todos') }}">To Do's</a></li>
     </ul>
 </nav>
 

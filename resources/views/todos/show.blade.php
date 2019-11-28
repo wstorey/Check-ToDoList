@@ -10,20 +10,29 @@
             @foreach($todo->items as $item)
                 <tr>
                     <td>{{ $item->name }}</td>
-                    <td><button class="btn btn-primary" href="#">Update Item</button></td>
-                    <td><button class="btn btn-danger" href="#">Delete Item</button></td>
+                    <td>
+                        <a href="{{ action('ItemController@edit', $item->id) }}"><button class="btn btn-primary">Update Item</button></a>
+                    </td>
+                    <td>
+                        <form method="post" action="{{ action('ItemController@destroy', $item->id) }}">
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            <button class="btn btn-danger" type="submit">Delete Item</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <div class="form-group">
+    <div class="form-inline">
         <form method="POST" action="{{action ('ItemController@store')}}">
             @include('partials.createForm',
-            ['buttonName' => 'Create',
+            ['buttonName' => 'Add Item',
              'name' => old('name'),
              'title' => 'Add New Item'])
         </form>
+        @include('partials.errors')
     </div>
 @endsection
 

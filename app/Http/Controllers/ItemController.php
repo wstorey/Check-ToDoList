@@ -52,12 +52,13 @@ class ItemController extends Controller
         $item->todos()->sync($todo);
 
         return redirect()->action('TodoController@show', $todo_id); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
+
     }
 
-    public function edit($item)
+    public function edit(Item $item)
     {
-        $itemFound = Item::findOrFail($item);
-        return view('item.edit', compact('itemFound'));
+//        $itemFound = Item::findOrFail($item);
+        return view('items.edit', compact('item'));
     }
 
 
@@ -66,16 +67,17 @@ class ItemController extends Controller
         $formData = $request->all();
         $itemFound = Item::findOrFail($item);
         $itemFound->update($formData);
-        return ; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
+        return redirect('todos/' . $itemFound->todo_id);; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
 
     public function destroy(Item $item)
     {
         $item->todos()->detach($item->todo_id);
 
-            $item->delete();
+//        dd($item);
+        $item->delete();
 
-        return ; //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
+        return redirect('todos/' . $item->todo_id); //FIGURE OUT WHAT VIEW THIS SHOULD RETURN!
     }
 
     public function restore($item) {

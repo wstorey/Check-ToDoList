@@ -13,15 +13,15 @@ class DatabaseSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
 
-        DB::table('users')->truncate();
-        $this->call(UsersTableSeeder::class);
+//        DB::table('users')->truncate();
+//        $this->call(UsersTableSeeder::class);
         DB::table('todos')->truncate();
         $this->call(TodosTableSeeder::class);
         DB::table('items')->truncate();
         $this->call(ItemsTableSeeder::class);
 
-//        DB::table('item_todo')->truncate();
-//        $this->call(ItemTodoTableSeeder::class);
+        DB::table('item_todo')->truncate();
+        $this->call(ItemTodoTableSeeder::class);
 
 
 
