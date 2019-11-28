@@ -48,7 +48,7 @@ class ItemController extends Controller
         $item->todos()->detach($item->todo_id);
         $item->delete();
 
-        return edirect()->action('TodoController@show', $item->todo_id);
+        return redirect()->action('TodoController@show', $item->todo_id);
     }
 
     public function restore($item) {
