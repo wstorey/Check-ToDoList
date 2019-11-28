@@ -11,7 +11,7 @@
                 <tr>
                     <td>{{ $item->name }}</td>
                     <td>
-                        <button class="btn btn-primary" href="#"><a href="{{ action('ItemController@edit', $item->id) }}">Update Item</a></button>
+                        <a href="{{ action('ItemController@edit', $item->id) }}"><button class="btn btn-primary">Update Item</button></a>
                     </td>
                     <td>
                         <form method="post" action="{{ action('ItemController@destroy', $item->id) }}">
@@ -25,13 +25,14 @@
         </tbody>
     </table>
 
-    <div class="form-group">
+    <div class="form-inline">
         <form method="POST" action="{{action ('ItemController@store')}}">
             @include('partials.createForm',
-            ['buttonName' => 'Create',
+            ['buttonName' => 'Add Item',
              'name' => old('name'),
              'title' => 'Add New Item'])
         </form>
+        @include('partials.errors')
     </div>
 @endsection
 

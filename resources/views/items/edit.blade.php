@@ -11,5 +11,6 @@
              'name' => $item->name,
              'title' => 'Update Item'])
         </form>
+        @include('partials.errors')
     </div>
 @endsection

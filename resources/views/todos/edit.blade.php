@@ -11,5 +11,6 @@
              'name' => $todo->name,
              'title' => 'Update Item'])
         </form>
+        @include('partials.errors')
     </div>
 @endsection
