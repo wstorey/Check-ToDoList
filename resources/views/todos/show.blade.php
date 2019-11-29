@@ -24,7 +24,6 @@
             @endforeach
         </tbody>
     </table>
-
     <div class="form-inline">
         <form method="POST" action="{{action ('ItemController@store')}}">
             @include('partials.createForm',
