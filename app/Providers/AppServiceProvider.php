@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+//        View::composer('master', function ($view) {
+//            $view->with('currentUser', \App\User::all()->where());
+//        });
     }
 }
