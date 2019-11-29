@@ -14,7 +14,7 @@
         @if (Route::has('login'))
                 @auth
                     <li class="nav-item"><a class="nav-link">Hello {{ auth()->user()->name }}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/todos') }}">To Do's {{ $todoCount }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/todos') }}">To Do's</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Log Out</a></li>
                 @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
@@ -30,6 +30,7 @@
 @yield('content')
 
 <footer>
+    <p>Helping with our users with {{ $todoCount }} to do lists and counting!</p>
     <p>&copy; 2019 - Will Storey &amp; Nathan Jubenville</p>
 </footer>
 </body>
