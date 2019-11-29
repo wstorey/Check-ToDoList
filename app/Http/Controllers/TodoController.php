@@ -23,8 +23,8 @@ class TodoController extends Controller
     public function show(Todo $todo)
     {
         $todos = Auth::User()->todos;
-        foreach($todos as $item) {
-            if($item->id == $todo->id) {
+        foreach($todos as $todoFromArray) {
+            if($todoFromArray->id == $todo->id) {
                 return view('todos.show',compact('todo'));
 
             }
