@@ -53,6 +53,6 @@ class ItemController extends Controller
 
     public function restore($item) {
         Item::withTrashed()->find($item)->restore();
-        return ;
+        return view('welcome');
     }
 }

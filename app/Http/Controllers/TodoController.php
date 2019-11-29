@@ -16,13 +16,20 @@ class TodoController extends Controller
 
     public function index()
     {
-         $todos = Auth::User()->todos;
+        $todos = Auth::User()->todos;
         return view('todos.index', compact('todos'));
     }
 
     public function show(Todo $todo)
     {
-        return view('todos.show',compact('todo'));
+        $todos = Auth::User()->todos;
+        foreach($todos as $todoFromArray) {
+            if($todoFromArray->id == $todo->id) {
+                return view('todos.show',compact('todo'));
+
+            }
+        }
+        return redirect('todos');
     }
 
     public function create()
