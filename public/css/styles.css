@@ -1,0 +1,78 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+h1 {
+    padding: 2vh 0 2vh 15px;
+}
+
+td:first-of-type {
+    width: 80%;
+}
+
+/* Header Styles */
+.navbar {
+    background: rgba(0, 167, 167, 0.4);
+}
+
+.navbar-brand,
+.nav-link {
+    color: #001177;
+    /*color: #274029;*/
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    font-size: 1.5rem;
+}
+
+/* Welcome Styles */
+.jumbotron {
+    height: 60vh;
+    font-size: 1.2rem;
+    background-image: url("../storage/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+img {
+    width: 90%;
+    padding-bottom: 25px;
+}
+
+/* Form Styles */
+.add-Todo-Or-Item {
+    width: 15vw;
+    border-radius: 10px;
+    margin: 5px 0 0 10px;
+    padding: 10px;
+}
+
+.add-button {
+    margin-bottom: 3px;
+    padding: 9px 25px;
+    font-size: 1rem;
+}
+
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 25px 0 0;
+}
