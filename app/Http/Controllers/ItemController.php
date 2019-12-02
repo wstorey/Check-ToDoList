@@ -33,12 +33,6 @@ class ItemController extends Controller
             $todo = Todo::findOrFail($todo_id);
             $item->todos()->syncWithoutDetaching($todo);
         }
-
-        //////////////////////////////////////////////////////
-
-
-
-
         return redirect()->action('TodoController@show', $todo_id);
 
     }
@@ -60,8 +54,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         $item->todos()->detach($item->todo_id);
-        $item->delete();
-
         return redirect()->action('TodoController@show', $item->todo_id);
     }
 
