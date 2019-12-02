@@ -27,7 +27,7 @@ class ItemController extends Controller
             $item = new Item($request->all());
             $item['todo_id']=$todo_id;
             $item->save();
-            $item->todos()->syncWithoutDetaching($todo);
+            $item->todos()->sync($todo);
         }else{
             $item = Item::where('name',$request->name)->first();
             $todo = Todo::findOrFail($todo_id);
