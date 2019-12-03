@@ -53,8 +53,11 @@ class ItemController extends Controller
 
     public function destroy(Item $item)
     {
-        $item->todos()->detach($item->todo_id);
-        return redirect()->action('TodoController@show', $item->todo_id);
+        $todo_id = session()->pull('todo_id');
+//        dd($todo_id, $item, $item->todos()->detach($todo_id));
+//        dd($todo_id, $item);
+        $item->todos()->detach($todo_id);
+        return redirect()->action('TodoController@show', $todo_id);
     }
 
     public function restore($item) {
