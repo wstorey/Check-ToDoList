@@ -19,12 +19,20 @@ class ItemController extends Controller
     public function store(ItemRequest $request)
     {
         $todo_id = $request->session()->pull('todo_id');
-        $todo = Todo::findOrFail($todo_id);
-        $item = new Item($request->all());
-        $item['todo_id']=$todo_id;
-        $item->save();
-        $item->todos()->sync($todo);
+        $test = Item::where('name',$request->name)->first();
 
+
+        if (empty($test)){
+            $todo = Todo::findOrFail($todo_id);
+            $item = new Item($request->all());
+            $item['todo_id']=$todo_id;
+            $item->save();
+            $item->todos()->syncWithoutDetaching($todo);
+        }else{
+            $item = Item::where('name',$request->name)->first();
+            $todo = Todo::findOrFail($todo_id);
+            $item->todos()->syncWithoutDetaching($todo);
+        }
         return redirect()->action('TodoController@show', $todo_id);
 
     }
@@ -46,8 +54,6 @@ class ItemController extends Controller
     public function destroy(Item $item)
     {
         $item->todos()->detach($item->todo_id);
-        $item->delete();
-
         return redirect()->action('TodoController@show', $item->todo_id);
     }
 
